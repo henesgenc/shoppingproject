@@ -21,7 +21,7 @@
     width: 30%;
     background-color:#e0e0e0;
 }
-input[type=text], select {
+input[type=text],[type=password],select {
     width: 100%;
     padding: 12px 20px;
     margin: 8px 0;
@@ -56,19 +56,19 @@ font-weight:bold;
 <body>
 <div id="general">&nbsp;
 <div id="medium">
-<p>Create Account</p>
+<p>CREATE ACCOUNT</p>
 <form action="reg" method="post">
 
 <input type="text" name="username" placeholder="Username"><br>
 
-<input type="text" name="password" placeholder="Password"><br>
+<input type="password" name="user_password" placeholder="Password"><br>
 
-<input type="text" name="firstname" placeholder="Name"><br>
+<input type="text" name="user_name" placeholder="Name"><br>
 
 
-<input type="text" name="lastname" placeholder="Last Name"><br>
+<input type="text" name="user_surname" placeholder="Last Name"><br>
     
-<input type="text" name="text" placeholder="Birthday"><br>
+<input type="text" name="user_birthdate" placeholder="Birthday"><br>
 
   
     <input type="submit" value="Submit">
