@@ -1,6 +1,10 @@
 package edu.aydin.ap;
 
 import java.io.IOException;
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -17,7 +21,18 @@ public class productservlet extends HttpServlet {
      * Default constructor. 
      */
     public productservlet() {
-        // TODO Auto-generated constructor stub
+    	try {
+			Class.forName("com.mysql.cj.jdbc.Driver");
+		} catch (ClassNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		try {
+			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/istanbulaydinuni?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey&useSSL=false","root","2brdk0La");
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
     }
 
 	/**
