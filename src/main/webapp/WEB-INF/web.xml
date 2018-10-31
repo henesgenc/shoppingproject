@@ -16,6 +16,12 @@
   	<description></description>
   	<servlet-class>edu.aydin.ap.productservlet</servlet-class>
   </servlet>
+  <servlet>
+  	<servlet-name>logincontrol</servlet-name>
+  	<display-name>logincontrol</display-name>
+  	<description></description>
+  	<servlet-class>edu.aydin.ap.logincontrol</servlet-class>
+  </servlet>
   <servlet-mapping>
   	<servlet-name>shoppingservlet</servlet-name>
   	<url-pattern>/shoppingservlet</url-pattern>
@@ -23,5 +29,9 @@
   <servlet-mapping>
   	<servlet-name>productservlet</servlet-name>
   	<url-pattern>/productservlet</url-pattern>
+  </servlet-mapping>
+  <servlet-mapping>
+  	<servlet-name>logincontrol</servlet-name>
+  	<url-pattern>/logincontrol</url-pattern>
   </servlet-mapping>
 </web-app>

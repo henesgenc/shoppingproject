@@ -57,13 +57,12 @@ font-weight:bold;
 <div id="general">&nbsp;
 <div id="medium">
 <p>SIGN IN</p>
-<form action="log" method="post">
+<form action="logincontrol" method="post">
 
 <input type="text" name="username" placeholder="Username"><br>
 
 <input type="password" name="user_password" placeholder="Password"><br>
 
-  
     <input type="submit" value="Submit">
   </form>
 </div>

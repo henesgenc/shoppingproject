@@ -3,7 +3,9 @@ package edu.aydin.ap;
 import java.io.IOException;
 import java.sql.Connection;
 import java.sql.DriverManager;
+import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.sql.Statement;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
@@ -19,20 +21,11 @@ public class productservlet extends HttpServlet {
 
     /**
      * Default constructor. 
+     * @throws ClassNotFoundException 
+     * @throws SQLException 
      */
     public productservlet() {
-    	try {
-			Class.forName("com.mysql.cj.jdbc.Driver");
-		} catch (ClassNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		try {
-			Connection connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/istanbulaydinuni?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey&useSSL=false","root","2brdk0La");
-		} catch (SQLException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+    	
     }
 
 	/**
@@ -45,9 +38,8 @@ public class productservlet extends HttpServlet {
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
-	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
 		// TODO Auto-generated method stub
-		response.getWriter().append("Served at: ").append(request.getContextPath());
 	}
 
 	/**
@@ -57,5 +49,7 @@ public class productservlet extends HttpServlet {
 		// TODO Auto-generated method stub
 		doGet(request, response);
 	}
-
+	public void controlLogin(String username,String password) {
+		
+	}
 }
