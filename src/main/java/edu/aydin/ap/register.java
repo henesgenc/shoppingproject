@@ -47,6 +47,7 @@ public class register extends HttpServlet {
 		}
 		try {
 		Statement statement = connect.createStatement();
+<<<<<<< HEAD
 		boolean htn = false;
 		String username = request.getParameter("username");
 		String user_password = request.getParameter("user_password");
@@ -69,6 +70,10 @@ public class register extends HttpServlet {
 		statement.executeUpdate(query);
 		//statement.executeUpdate("INSERT INTO shopping.users VALUES(2,"+request.getParameter("username").toString()+","+request.getParameter("user_password").toString()+","+request.getParameter("user_surname").toString()+","+request.getParameter("user_birthdate").toString()+")");
 		request.getServletContext().getRequestDispatcher("/registersuccessfully.jsp").
+=======
+		statement.executeUpdate("INSERT INTO shopping.users VALUES("+"2,"+request.getParameter("username")+","+request.getParameter("user_password")+","+request.getParameter("user_surname")+","+request.getParameter("user_birthdate")+")");
+		request.getServletContext().getRequestDispatcher("/index.jsp").
+>>>>>>> d4bcfc9b18de69e536cfa72b07cb412a09cad8e1
 		forward(request, response);
 		}}catch(SQLException e) {
 			e.printStackTrace();
