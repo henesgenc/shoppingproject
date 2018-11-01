@@ -47,7 +47,14 @@ public class register extends HttpServlet {
 		}
 		try {
 		Statement statement = connect.createStatement();
-		statement.executeUpdate("INSERT INTO shopping.users VALUES("+"2,"+request.getParameter("username")+","+request.getParameter("user_password")+","+request.getParameter("user_surname")+","+request.getParameter("user_birthdate")+")");
+		String username = request.getParameter("username");
+		String user_password = request.getParameter("user_password");
+		String user_name = request.getParameter("user_name");
+		String user_surname = request.getParameter("user_surname");
+		String user_birthdate = request.getParameter("user_birthdate");
+		String query = "INSERT INTO `shopping`.`users` (`username`, `user_password`, `user_name`, `user_surname`, `user_birthdate`) VALUES ('"+ username +"', '"+ user_password +"', '"+ user_name +"', '"+ user_surname +"', '"+ user_birthdate +"');\r\n";
+		statement.executeUpdate(query);
+		//statement.executeUpdate("INSERT INTO shopping.users VALUES(2,"+request.getParameter("username").toString()+","+request.getParameter("user_password").toString()+","+request.getParameter("user_surname").toString()+","+request.getParameter("user_birthdate").toString()+")");
 		request.getServletContext().getRequestDispatcher("/index.jsp").
 		forward(request, response);
 		}catch(SQLException e) {
