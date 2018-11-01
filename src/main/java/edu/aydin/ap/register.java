@@ -11,34 +11,25 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
- * Servlet implementation class logincontrol
+ * Servlet implementation class register
  */
-public class logincontrol extends HttpServlet {
+public class register extends HttpServlet {
 	private static final long serialVersionUID = 1L;
        
     /**
-     * @throws ClassNotFoundException 
-     * @throws SQLException 
      * @see HttpServlet#HttpServlet()
      */
-    public logincontrol() {
+    public register() {
         super();
-			/**/
+        // TODO Auto-generated constructor stub
     }
 
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		// TODO Auto-generated method stub
-		String username = request.getParameter("username");
-		HttpSession session=request.getSession(); 
-		System.out.println(username);
-		String password = request.getParameter("user_password"); 
-		boolean status=false;
 		try {
 			Class.forName("com.mysql.jdbc.Driver");
 		} catch (ClassNotFoundException e1) {
@@ -54,40 +45,20 @@ public class logincontrol extends HttpServlet {
 		    System.out.println("SQLState: " + e1.getSQLState());
 		    System.out.println("VendorError: " + e1.getErrorCode());
 		}
-			try {
-				Statement statement = connect.createStatement();
-				String query = "SELECT username,user_password FROM shopping.users";
-				ResultSet rs = statement.executeQuery(query);
-				while(rs.next()) {
-					String un = rs.getString("username");
-					System.out.println(un);
-					if(username.equals(un)) {
-						status=true;
-						String pass = rs.getString("user_password");
-						if(password.equals(pass)) {
-					        session.setAttribute("username",username); 
-					        request.getServletContext().getRequestDispatcher("/index.jsp").
-							forward(request, response);
-					        System.out.println(session.getAttribute("username"));
-					        System.out.println("Successed");
-						}
-						else
-							System.out.println("Your password is wrong.");
-					}
-				}
-				if(!status)
-					System.out.println("Username Not Found");
-					
-			}
-			catch(SQLException e) {
-				e.printStackTrace();
-			}
-			try {
-				connect.close();
-			} catch (SQLException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+		try {
+		Statement statement = connect.createStatement();
+		statement.executeUpdate("INSERT INTO shopping.users VALUES("+"2,"+request.getParameter("username")+","+request.getParameter("user_password")+","+request.getParameter("user_surname")+","+request.getParameter("user_birthdate")+")");
+		request.getServletContext().getRequestDispatcher("/index.jsp").
+		forward(request, response);
+		}catch(SQLException e) {
+			e.printStackTrace();
+		}
+		try {
+			connect.close();
+		} catch (SQLException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 
 	/**

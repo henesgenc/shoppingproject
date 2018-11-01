@@ -39,8 +39,18 @@
 <body>
 <div class="jumbotron"><p id="banner">Shopping</p></div>
 <div id="login-reg">
+<% 
+request.getSession().getAttribute("username");
+System.out.println(session.getAttribute("username"));
+if(session.getAttribute("username")==null){ %>
 <a href="./login.jsp">Login</a>
 <a href="./register.jsp">Register</a>
+<%} else{ %>
+  	<p>
+<%= request.getSession().getAttribute("username") %>
+<a href="./logout">Logout</a>
+<%}  %>
+</p>
 <div id="content">
 <div id="products">
 </div>

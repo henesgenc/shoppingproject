@@ -63,7 +63,7 @@ font-weight:bold;
 
 <input type="password" name="user_password" placeholder="Password"><br>
 
-    <input type="submit" value="Submit">
+<input type="submit" value="Submit">
   </form>
 </div>
 

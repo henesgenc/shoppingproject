@@ -57,7 +57,7 @@ font-weight:bold;
 <div id="general">&nbsp;
 <div id="medium">
 <p>CREATE ACCOUNT</p>
-<form action="reg" method="post">
+<form action="./register" method="post">
 
 <input type="text" name="username" placeholder="Username"><br>
 
