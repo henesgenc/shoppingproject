@@ -38,7 +38,9 @@ public class register extends HttpServlet {
 		}
 		Connection connect = null;
 		try {
-			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey&useSSL=false","root","2brdk0La");
+			String sqluser = "root";
+			String sqlpassword = "2brdk0La";
+			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey&useSSL=false",sqluser,sqlpassword);
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			System.out.println("SQLException: " + e1.getMessage());
@@ -47,7 +49,6 @@ public class register extends HttpServlet {
 		}
 		try {
 		Statement statement = connect.createStatement();
-<<<<<<< HEAD
 		boolean htn = false;
 		String username = request.getParameter("username");
 		String user_password = request.getParameter("user_password");
@@ -66,14 +67,10 @@ public class register extends HttpServlet {
 			request.getServletContext().getRequestDispatcher("/register.jsp").
 			forward(request, response);
 		}else {
-		String query = "INSERT INTO `shopping`.`users` (`username`, `user_password`, `user_name`, `user_surname`, `user_birthdate`) VALUES ('"+ username +"', '"+ user_password +"', '"+ user_name +"', '"+ user_surname +"', '"+ user_birthdate +"');\r\n";
+		String query = "INSERT INTO `shopping`.`users` (`username`, `user_password`, `user_name`, `user_surname`, `user_birthdate`) VALUES "
+				+ "('"+ username +"', '"+ user_password +"', '"+ user_name +"', '"+ user_surname +"', '"+ user_birthdate +"');\r\n";
 		statement.executeUpdate(query);
-		//statement.executeUpdate("INSERT INTO shopping.users VALUES(2,"+request.getParameter("username").toString()+","+request.getParameter("user_password").toString()+","+request.getParameter("user_surname").toString()+","+request.getParameter("user_birthdate").toString()+")");
 		request.getServletContext().getRequestDispatcher("/registersuccessfully.jsp").
-=======
-		statement.executeUpdate("INSERT INTO shopping.users VALUES("+"2,"+request.getParameter("username")+","+request.getParameter("user_password")+","+request.getParameter("user_surname")+","+request.getParameter("user_birthdate")+")");
-		request.getServletContext().getRequestDispatcher("/index.jsp").
->>>>>>> d4bcfc9b18de69e536cfa72b07cb412a09cad8e1
 		forward(request, response);
 		}}catch(SQLException e) {
 			e.printStackTrace();
