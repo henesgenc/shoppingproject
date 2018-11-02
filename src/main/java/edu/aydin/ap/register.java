@@ -38,7 +38,13 @@ public class register extends HttpServlet {
 		}
 		Connection connect = null;
 		try {
+<<<<<<< HEAD
 			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey&useSSL=false","root","2367854");
+=======
+			String sqluser = "root";
+			String sqlpassword = "2brdk0La";
+			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey&useSSL=false",sqluser,sqlpassword);
+>>>>>>> 9f2faf3f93079dbb1b211557c0e35ef84733329d
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			System.out.println("SQLException: " + e1.getMessage());
@@ -53,23 +59,38 @@ public class register extends HttpServlet {
 		String user_name = request.getParameter("user_name");
 		String user_surname = request.getParameter("user_surname");
 		String user_birthdate = request.getParameter("user_birthdate");
+<<<<<<< HEAD
 		String controlquery = "SELECT username FROM shooping.users";
 		/*ResultSet rs = statement.executeQuery(controlquery);
+=======
+		String controlquery = "SELECT username FROM shopping.users";
+		ResultSet rs = statement.executeQuery(controlquery);
+>>>>>>> 9f2faf3f93079dbb1b211557c0e35ef84733329d
 		while(rs.next()) {
 			String un = rs.getString("username");
 			if(un.equals(username)) {
 				htn = true;
 			}
 		}
+<<<<<<< HEAD
 		if(htn) {*/
 			//error massage.
 		//}else {
 		String query = "INSERT INTO `shopping`.`users` (`username`, `user_password`, `user_name`, `user_surname`, `user_birthdate`) VALUES ('"+ username +"', '"+ user_password +"', '"+ user_name +"', '"+ user_surname +"', '"+ user_birthdate +"');\r\n";
 		statement.executeUpdate(query);
 		//statement.executeUpdate("INSERT INTO shopping.users VALUES(2,"+request.getParameter("username").toString()+","+request.getParameter("user_password").toString()+","+request.getParameter("user_surname").toString()+","+request.getParameter("user_birthdate").toString()+")");
+=======
+		if(htn) {
+			request.getServletContext().getRequestDispatcher("/register.jsp").
+			forward(request, response);
+		}else {
+		String query = "INSERT INTO `shopping`.`users` (`username`, `user_password`, `user_name`, `user_surname`, `user_birthdate`) VALUES "
+				+ "('"+ username +"', '"+ user_password +"', '"+ user_name +"', '"+ user_surname +"', '"+ user_birthdate +"');\r\n";
+		statement.executeUpdate(query);
+>>>>>>> 9f2faf3f93079dbb1b211557c0e35ef84733329d
 		request.getServletContext().getRequestDispatcher("/registersuccessfully.jsp").
 		forward(request, response);
-		}catch(SQLException e) {
+		}}catch(SQLException e) {
 			e.printStackTrace();
 		}
 		try {
