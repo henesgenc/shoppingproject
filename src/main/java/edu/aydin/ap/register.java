@@ -38,7 +38,7 @@ public class register extends HttpServlet {
 		}
 		Connection connect = null;
 		try {
-			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey&useSSL=false","root","2brdk0La");
+			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey&useSSL=false","root","2367854");
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			System.out.println("SQLException: " + e1.getMessage());
@@ -47,8 +47,27 @@ public class register extends HttpServlet {
 		}
 		try {
 		Statement statement = connect.createStatement();
-		statement.executeUpdate("INSERT INTO shopping.users VALUES("+"2,"+request.getParameter("username")+","+request.getParameter("user_password")+","+request.getParameter("user_surname")+","+request.getParameter("user_birthdate")+")");
-		request.getServletContext().getRequestDispatcher("/index.jsp").
+		boolean htn = false;
+		String username = request.getParameter("username");
+		String user_password = request.getParameter("user_password");
+		String user_name = request.getParameter("user_name");
+		String user_surname = request.getParameter("user_surname");
+		String user_birthdate = request.getParameter("user_birthdate");
+		String controlquery = "SELECT username FROM shooping.users";
+		/*ResultSet rs = statement.executeQuery(controlquery);
+		while(rs.next()) {
+			String un = rs.getString("username");
+			if(un.equals(username)) {
+				htn = true;
+			}
+		}
+		if(htn) {*/
+			//error massage.
+		//}else {
+		String query = "INSERT INTO `shopping`.`users` (`username`, `user_password`, `user_name`, `user_surname`, `user_birthdate`) VALUES ('"+ username +"', '"+ user_password +"', '"+ user_name +"', '"+ user_surname +"', '"+ user_birthdate +"');\r\n";
+		statement.executeUpdate(query);
+		//statement.executeUpdate("INSERT INTO shopping.users VALUES(2,"+request.getParameter("username").toString()+","+request.getParameter("user_password").toString()+","+request.getParameter("user_surname").toString()+","+request.getParameter("user_birthdate").toString()+")");
+		request.getServletContext().getRequestDispatcher("/registersuccessfully.jsp").
 		forward(request, response);
 		}catch(SQLException e) {
 			e.printStackTrace();
