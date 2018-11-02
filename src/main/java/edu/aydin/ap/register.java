@@ -53,12 +53,12 @@ public class register extends HttpServlet {
 		}
 		try {
 		Statement statement = connect.createStatement();
-		boolean htn = false;
 		String username = request.getParameter("username");
 		String user_password = request.getParameter("user_password");
 		String user_name = request.getParameter("user_name");
 		String user_surname = request.getParameter("user_surname");
 		String user_birthdate = request.getParameter("user_birthdate");
+<<<<<<< HEAD
 <<<<<<< HEAD
 		String controlquery = "SELECT username FROM shooping.users";
 		/*ResultSet rs = statement.executeQuery(controlquery);
@@ -89,8 +89,14 @@ public class register extends HttpServlet {
 		statement.executeUpdate(query);
 >>>>>>> 9f2faf3f93079dbb1b211557c0e35ef84733329d
 		request.getServletContext().getRequestDispatcher("/registersuccessfully.jsp").
+=======
+		String query = "INSERT INTO `shopping`.`users` (`username`, `user_password`, `user_name`, `user_surname`, `user_birthdate`) VALUES ('"+ username +"', '"+ user_password +"', '"+ user_name +"', '"+ user_surname +"', '"+ user_birthdate +"');\r\n";
+		statement.executeUpdate(query);
+		//statement.executeUpdate("INSERT INTO shopping.users VALUES(2,"+request.getParameter("username").toString()+","+request.getParameter("user_password").toString()+","+request.getParameter("user_surname").toString()+","+request.getParameter("user_birthdate").toString()+")");
+		request.getServletContext().getRequestDispatcher("/index.jsp").
+>>>>>>> parent of 3062bb2... register-username control
 		forward(request, response);
-		}}catch(SQLException e) {
+		}catch(SQLException e) {
 			e.printStackTrace();
 		}
 		try {

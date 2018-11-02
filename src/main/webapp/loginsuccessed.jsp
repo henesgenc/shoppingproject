@@ -4,10 +4,14 @@
 <html>
 <head>
 <meta charset="ISO-8859-1">
-<title>Register Succesfully</title>
+<title>Insert title here</title>
 </head>
 <body>
-Register Succesfully.
+<%
+	String username = request.getParameter("username");
+%>
+<p><%= username %> </p>
+Login Successed.
 <a href="./index.jsp">Anasayfa</a>
 </body>
 </html>
