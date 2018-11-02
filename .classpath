@@ -29,24 +29,22 @@
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Program Files (x86)/MySQL/Connector J 8.0/mysql-connector-java-8.0.13.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hasan/OneDrive/Masaüstü/apache-tomcat-7.0.91/mysql-connector-java-8.0.13.jar"/>
-	<classpathentry kind="lib" path="C:/Users/hasan/OneDrive/Masaüstü/apache-tomcat-7.0.91/lib/jasper.jar">
+	<classpathentry kind="lib" path="C:/apache-tomcat-9.0.12/lib/jasper.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/hasan/OneDrive/Masaüstü/apache-tomcat-7.0.91/lib/jasper-el.jar">
+	<classpathentry kind="lib" path="C:/apache-tomcat-9.0.12/lib/jasper-el.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/hasan/OneDrive/Masaüstü/apache-tomcat-7.0.91/lib/jsp-api.jar">
+	<classpathentry kind="lib" path="C:/apache-tomcat-9.0.12/lib/jsp-api.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>
 	</classpathentry>
-	<classpathentry kind="lib" path="C:/Users/hasan/OneDrive/Masaüstü/apache-tomcat-7.0.91/lib/servlet-api.jar">
+	<classpathentry kind="lib" path="C:/apache-tomcat-9.0.12/lib/servlet-api.jar">
 		<attributes>
 			<attribute name="org.eclipse.jst.component.dependency" value="/WEB-INF/lib"/>
 		</attributes>

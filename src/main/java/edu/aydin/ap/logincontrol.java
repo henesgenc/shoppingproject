@@ -47,7 +47,7 @@ public class logincontrol extends HttpServlet {
 		}
 		Connection connect = null;
 		try {
-			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey&useSSL=false","root","2brdk0La");
+			connect = DriverManager.getConnection("jdbc:mysql://localhost:3306/shopping?useUnicode=true&useLegacyDatetimeCode=false&serverTimezone=Turkey&useSSL=false","root","2367854");
 		} catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			System.out.println("SQLException: " + e1.getMessage());
